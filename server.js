@@ -15,7 +15,8 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: [{
-        price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
+       // price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
+       price: 'price_1RtYZGRc6cDcGXxsuCW33pnW',
         quantity: 1,
       }],
       success_url: 'https://www.correctthecontract.com/artist-label',
