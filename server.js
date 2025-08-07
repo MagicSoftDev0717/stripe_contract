@@ -5,7 +5,9 @@ const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://www.correctthecontract.com'
+}));
 
 app.post('/create-checkout-session', async (req, res) => {
   try {
