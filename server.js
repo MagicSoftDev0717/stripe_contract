@@ -71,4 +71,24 @@ app.post('/create-checkout-session_video', async (req, res) => {
     res.status(500).json({ error: 'Stripe checkout session creation failed' });
   }
 });
+
+app.post('/create-subscription-session', async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: [{
+       price: 'price_1Rka5XRU1fA8NXRMv5k4BZOw',
+       quantity: 1,
+      }],
+      success_url: 'https://www.correctthecontract.com/video-film?payment=success',
+      cancel_url: 'https://yourdomain.com/cancel',
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Stripe checkout session creation failed' });
+  }
+});
 app.listen(4242, () => console.log('Server running on port 4242'));
