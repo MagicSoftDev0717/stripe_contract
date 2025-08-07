@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const app = express();
-const stripe = require('stripe')(STRIPE_API_KEY);
+const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 const cors = require('cors');
 
 app.use(express.json());
