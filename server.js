@@ -81,7 +81,7 @@ app.post('/create-subscription-session', async (req, res) => {
        price: 'price_1Rka5XRU1fA8NXRMv5k4BZOw',
        quantity: 1,
       }],
-      success_url: 'https://www.correctthecontract.com/video-film?payment=success',
+      success_url: 'https://www.correctthecontract.com/artist-label?subscription=success',
       cancel_url: 'https://yourdomain.com/cancel',
     });
 
