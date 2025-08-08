@@ -74,6 +74,9 @@ app.post('/create-checkout-session_video', async (req, res) => {
 
 app.post('/create-subscription-session', async (req, res) => {
   try {
+
+    const { email, redirectPath } = req.body;
+    const successUrl = `https://www.correctthecontract.com/${redirectPath}?subscription=success`;
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'subscription',
@@ -81,7 +84,7 @@ app.post('/create-subscription-session', async (req, res) => {
        price: 'price_1Rka5XRU1fA8NXRMv5k4BZOw',
        quantity: 1,
       }],
-      success_url: 'https://www.correctthecontract.com/artist-label?subscription=success',
+      success_url: successUrl,
       cancel_url: 'https://yourdomain.com/cancel',
     });
 
@@ -91,4 +94,5 @@ app.post('/create-subscription-session', async (req, res) => {
     res.status(500).json({ error: 'Stripe checkout session creation failed' });
   }
 });
+
 app.listen(4242, () => console.log('Server running on port 4242'));
