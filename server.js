@@ -72,6 +72,26 @@ app.post('/create-checkout-session_video', async (req, res) => {
   }
 });
 
+app.post('/create-checkout-session_ms', async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      line_items: [{
+       price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd',
+        quantity: 1,
+      }],
+      success_url: 'https://www.correctthecontract.com/artist-label?payment=success',
+      cancel_url: 'https://yourdomain.com/cancel',
+    });
+
+    res.json({ url: session.url });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Stripe checkout session creation failed' });
+  }
+});
+
 app.post('/create-subscription-session', async (req, res) => {
   try {
 
