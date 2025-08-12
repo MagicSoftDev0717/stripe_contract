@@ -81,7 +81,7 @@ app.post('/create-checkout-session_ms', async (req, res) => {
        price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd',
         quantity: 1,
       }],
-      success_url: 'https://www.correctthecontract.com/artist-label?payment=success',
+      success_url: 'https://www.correctthecontract.com/artist-label?mailstream_payment=success',
       cancel_url: 'https://yourdomain.com/cancel',
     });
 
