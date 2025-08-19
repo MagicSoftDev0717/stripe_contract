@@ -18,7 +18,7 @@ app.post('/create-checkout-session', async (req, res) => {
       customer: customer.id,
       mode: 'payment',
       line_items: [{
-       //price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
+       //price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT', // test price_id
        price: 'price_1RxgWmDy6JnWBXURjMGpqAmE',
         quantity: 1,
       }],
@@ -35,8 +35,12 @@ app.post('/create-checkout-session', async (req, res) => {
 
 app.post('/create-checkout-session_independent', async (req, res) => {
   try {
+    const { email } = req.body;
+    const customer = await stripe.customers.create({ email });
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      customer: customer.id,
       mode: 'payment',
       line_items: [{
        price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
@@ -56,8 +60,12 @@ app.post('/create-checkout-session_independent', async (req, res) => {
 
 app.post('/create-checkout-session_video', async (req, res) => {
   try {
+    const { email } = req.body;
+    const customer = await stripe.customers.create({ email });
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      customer: customer.id,
       mode: 'payment',
       line_items: [{
        price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
@@ -77,11 +85,14 @@ app.post('/create-checkout-session_video', async (req, res) => {
 
 app.post('/create-checkout-session_ms', async (req, res) => {
   try {
+    const { email } = req.body;
+    const customer = await stripe.customers.create({ email });
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      customer: customer.id,
       mode: 'payment',
       line_items: [{
-       //price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd',
+       //price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd', // test price_id
        price: 'price_1RxhVnDy6JnWBXUR72EXYTR8',
         quantity: 1,
       }],
