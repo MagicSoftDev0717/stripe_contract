@@ -78,7 +78,8 @@ app.post('/create-checkout-session_ms', async (req, res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: [{
-       price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd',
+       //price: 'price_1Ruk6fRU1fA8NXRMUIO1nJPd',
+       price: 'price_1RxhVnDy6JnWBXUR72EXYTR8',
         quantity: 1,
       }],
       success_url: 'https://www.correctthecontract.com/artist-label?mailstream_payment=success',
@@ -106,7 +107,8 @@ app.post('/create-subscription-session', async (req, res) => {
       customer: customer.id,
       mode: 'subscription',
       line_items: [{
-       price: 'price_1Rka5XRU1fA8NXRMv5k4BZOw',
+       //price: 'price_1Rka5XRU1fA8NXRMv5k4BZOw',
+       price: 'price_1RxhTwDy6JnWBXURtya1d5bu',
        quantity: 1,
       }],
       success_url: successUrl,
