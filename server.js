@@ -43,8 +43,8 @@ app.post('/create-checkout-session_independent', async (req, res) => {
       customer: customer.id,
       mode: 'payment',
       line_items: [{
-       price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
-       //price: 'price_1RtYZGRc6cDcGXxsuCW33pnW',
+       // price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
+       price: 'price_1RxgWmDy6JnWBXURjMGpqAmE',
         quantity: 1,
       }],
       success_url: 'https://www.correctthecontract.com/independent-contractor?payment=success',
@@ -68,8 +68,8 @@ app.post('/create-checkout-session_video', async (req, res) => {
       customer: customer.id,
       mode: 'payment',
       line_items: [{
-       price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
-       //price: 'price_1RtYZGRc6cDcGXxsuCW33pnW',
+       //price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
+       price: 'price_1RxgWmDy6JnWBXURjMGpqAmE',
         quantity: 1,
       }],
       success_url: 'https://www.correctthecontract.com/video-film?payment=success',
