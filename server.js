@@ -11,8 +11,11 @@ app.use(cors({
 
 app.post('/create-checkout-session', async (req, res) => {
   try {
+    const { email } = req.body;
+    const customer = await stripe.customers.create({ email });
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      customer: customer.id,
       mode: 'payment',
       line_items: [{
        //price: 'price_1Rka4DRU1fA8NXRMWKwM2fzT',
